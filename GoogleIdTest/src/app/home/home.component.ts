@@ -25,7 +25,8 @@ export class HomeComponent implements OnInit {
   }
 
   register() {
-    this.router.navigateByUrl("/auth/login");
+    this.router.navigateByUrl('/auth/login')
+    .then((resolve) => console.log(resolve), (err) => console.log(err))
   }
 
 }

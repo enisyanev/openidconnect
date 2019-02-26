@@ -13,12 +13,14 @@ export class LoginComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit() {
-    this.authService.login();
+    this.authService.login()
+  
   }
 
 
   @HostListener('window:message', ['$event']) onMessage(event) {
     if (event.origin === 'http://localhost:4200' && event.data.type === 'oauth') {
+      debugger
       this.authService.authorize(event.data.value)
         .then(() => {
           const redirectUrl = sessionStorage.getItem('redirectUrl');

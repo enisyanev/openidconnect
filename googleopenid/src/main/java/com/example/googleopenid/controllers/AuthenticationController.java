@@ -17,6 +17,7 @@ public class AuthenticationController {
 
     @GetMapping("/me")
     public UserPrincipal getMe(@AuthenticationPrincipal UserPrincipal userPrincipal) {
+        System.out.println(userPrincipal.getEmail());
         return userPrincipal;
     }
 

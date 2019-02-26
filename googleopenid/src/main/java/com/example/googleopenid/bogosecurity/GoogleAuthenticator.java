@@ -8,7 +8,7 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleTokenResponse;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.util.Value;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,15 +18,16 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 
-@Service
-public class GoogleAuthenticator {
+@Service("googleAuthenticator")
+public class GoogleAuthenticator{
     private JacksonFactory jacksonFactory;
     private HttpTransport httpTransport;
 
-    @Value("${google.client.id}")
+    @Value
+    ("${spring.security.oauth2.client.registration.google.client.id}")
     private String cliendId;
-
-    @Value("${google.client.secret}")
+    @Value
+    ("${spring.security.oauth2.client.registration.google.client.secret}")
     private String clientSecret;
 
     public GoogleAuthenticator() {

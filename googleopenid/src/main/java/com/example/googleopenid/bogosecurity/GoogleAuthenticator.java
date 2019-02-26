@@ -20,17 +20,6 @@ import java.security.GeneralSecurityException;
 import java.util.Collections;
 
 @Service("googleAuthenticator")
-<<<<<<< HEAD
-public class GoogleAuthenticator{
-    private JacksonFactory jacksonFactory;
-    private HttpTransport httpTransport;
-
-    @Value
-    ("${spring.security.oauth2.client.registration.google.client.id}")
-    private String cliendId;
-    @Value
-    ("${spring.security.oauth2.client.registration.google.client.secret}")
-=======
 public class GoogleAuthenticator {
     private JsonFactory jsonFactory;
     private HttpTransport transport;
@@ -39,7 +28,6 @@ public class GoogleAuthenticator {
     private String clientId;
 
     @Value("${spring.security.oauth2.client.registration.google.client-secret}")
->>>>>>> 96c16f47089cd9a238c447f809a5b06fe57aafd4
     private String clientSecret;
 
 
